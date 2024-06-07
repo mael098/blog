@@ -1,22 +1,28 @@
 import { cliente, e } from '@/lib//edgedb'
+import ButtonDelite from '../buttonDelite';
 
 export default async function Targetas() {
-    const selectTask = e.select(e.Task, () => ({
+
+    const selectTask = e.select(e.Task,() => ({
         id: true,
         title: true,
         description: true,
     }))
+
     const tasks = await selectTask.run(cliente)
+    console.log(tasks);
+
     return (
         <>
-            {
-                tasks.map((task) => (
-                    <div key={task.id} className="bg-gray-100 m-2 p-2 justify-center justify-items-center">
-                        <h2>{task.title}</h2>
-                        <p>{task.description}</p>
-                    </div>
-                ))
-            }
+        {tasks.map((tasks) => (
+            <div key={tasks.id} className="w-96 bg-white p-8 rounded-2xl m-4">
+                <h2 className="text-2xl font-semibold text-center">{tasks.title}</h2>
+                <p className="text-sm">{tasks.description}</p>
+                <div className="mt-4">
+                    <ButtonDelite task={tasks}/>
+                </div>
+            </div>
+        ))}
         </>
 
     )
