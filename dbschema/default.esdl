@@ -3,17 +3,20 @@ module default {
         required title: str;
         required description: str;
         required completed: bool {
-            default:= false;
+            default := false;
         }
+        link user -> User;
     }
+    
     type User {
         required name: str;
         required email: str;
         required password: str;
-        multi link Task: Task;
+        multi link tasks := .<user[is Task];
     }
+    
     type apodos {
         required name: str;
-        multi link User: User;
+        multi link users -> User;
     }
 }

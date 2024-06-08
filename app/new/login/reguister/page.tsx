@@ -8,7 +8,7 @@ export default function Reguister() {
         const name = formData.get('name') as string
         const password = formData.get('password') as string
         const email = formData.get('email') as string
-        console.log({ name, password });
+        console.log({ name, password, email});
 
         const inserUser = e.insert(e.User, {
             name,
