@@ -1,9 +1,7 @@
-import Image from "next/image";
 import Targetas from "./components/targetas";
 import Link from "next/link";
 
 export default async function Home() {
-
   return (
     <div className="bg-gray-100 h-screen w-full text-black">
       <header className="h-20 flex items-center justify-center bg-slate-600">

@@ -6,4 +6,14 @@ module default {
             default:= false;
         }
     }
+    type User {
+        required name: str;
+        required email: str;
+        required password: str;
+        multi link Task: Task;
+    }
+    type apodos {
+        required name: str;
+        multi link User: User;
+    }
 }
